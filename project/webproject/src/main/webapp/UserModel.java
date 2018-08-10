@@ -30,7 +30,7 @@ public String getDOB() {
 	return DOB;
 }
 public void setDOB(String string) {
-	DOB = string;
+	this.DOB = string;
 }
 public String getEmailId() {
 	return emailId;

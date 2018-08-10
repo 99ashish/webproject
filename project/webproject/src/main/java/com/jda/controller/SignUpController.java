@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jda.Model.UserModel;
 import com.jda.dao.Dbo;
 
 public class SignUpController extends HttpServlet {
@@ -22,14 +23,18 @@ public class SignUpController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
         UserModel userData=new UserModel();
-       userData.setName(request.getParameter("name"));
-       userData.setDOB("dob");
-       userData.setEmailId("email");
-       userData.setContactNumber("mobnum");
-       userData.setPassword("password");
-		PrintWriter out = response.getWriter();
+       PrintWriter out = response.getWriter();
 		try {
-		Dbo.insertIntoDb(userData);	
+			System.out.println(request.getParameter("dob"));
+			userData.setName(request.getParameter("name"));
+		       userData.setDob(request.getParameter("dob"));
+		       userData.setEmail(request.getParameter("email"));
+		       userData.setContactno(request.getParameter("mobnum"));
+		       userData.setPassword(request.getParameter("password"));
+				
+		Dbo.insertIntoDb(userData);
+		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 		} catch (SQLException | ClassNotFoundException e) {
 			//RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeRedirectURL("registration.jsp"));
 			//dispatcher.forward(request, response);

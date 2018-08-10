@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jda.Model.UserModel;
 import com.jda.dao.Dbo;
 /**
  * Servlet implementation class UserController
@@ -32,20 +33,27 @@ public class LogInController extends HttpServlet {
 			int cnt=0;
 			while(res.next())
 			{
+				userModel=new UserModel();
 				 userModel.setName(res.getString(1));
 				 userModel.setPassword(res.getString(5));
 				cnt++;
 			}
 			if(cnt==1)
 			{
-				//request.getSession().setAttribute("user", userModel);
+				if(userModel.getPassword().equals(password))
+				{
+				request.getSession().setAttribute("user", userModel);
 				RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeRedirectURL("home.jsp"));
 				dispatcher.forward(request, response);
+				}
+				else
+				{
+					response.sendRedirect("login.jsp");
+				}
 			}
 			else
 			{
-				RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeRedirectURL("home.jsp"));
-				dispatcher.forward(request, response);
+				response.sendRedirect("login.jsp");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeRedirectURL("login.jsp"));
