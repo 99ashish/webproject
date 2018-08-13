@@ -5,8 +5,8 @@
 <body>
 	<h2>Log In page</h2>
 	<form action="login" method="post">
-		<input type="text" name="email" placeholder="email-Id"><br>
-		<input type="password" name="password" placeholder="password"><br>
+		<input type="text" name="email" placeholder="email-Id"  required><br>
+		<input type="password" name="password" placeholder="password"  required><br>
 		<input type="submit">
 	</form>
 </body>

@@ -5,14 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Insert title here</title>
+<script src="JsValidation/jsvalidation.js"></script>
 </head>
-<body>
-<form action = "sign" method = "post">
-Name:<br> <input type="text" name="name" placeholder="name"><br><br>
-Email: <br> <input type="text" name="email" placeholder="email"><br><br>
-DOB: <br> <input type="text" name="dob" placeholder="mm/dd/yyyy"><br><br>
-Mobile number:<br><input type="text" name="mobnum" placeholder="Mobile Number"><br><br>
-Password:<br><input type="password" name="password" placeholder="password"><br><br>
+<body load="firstfocus()">
+<form action = "sign" method = "post" name="registration">
+Name:<br> <input type="text" name="name" placeholder="name"  onblur="userName()" ><br><br>
+Email: <br> <input type="text" name="email" placeholder="email" onblur="emailValidation()"><br><br>
+DOB: <br> <input type="text" name="dob" placeholder="mm/dd/yyyy" ><br><br>
+Mobile number:<br><input type="text" name="mobnum" placeholder="Mobile Number" onblur="mobileNumber()"><br><br>
+Password:<br><input type="password" name="password" placeholder="password" onblur="password(5,10)"><br><br>
 <input type="submit">
 </form>
 </body>
