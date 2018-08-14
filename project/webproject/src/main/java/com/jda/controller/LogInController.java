@@ -6,15 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jda.Model.UserModel;
 import com.jda.dao.Dbo;
 /**
  * Servlet implementation class UserController
  */
+@WebListener
 public class LogInController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,6 +45,7 @@ public class LogInController extends HttpServlet {
 			{
 				if(userModel.getPassword().equals(password))
 				{
+				HttpSession session = request.getSession();
 				request.getSession().setAttribute("user", userModel);
 				RequestDispatcher dispatcher = request.getRequestDispatcher(response.encodeRedirectURL("home.jsp"));
 				dispatcher.forward(request, response);

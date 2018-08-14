@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import com.jda.dao.Dbo;
 import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
-
 public class LogOutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -3,6 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
   <filter>
 		<filter-name>filterData</filter-name>
 		<filter-class>com.jda.Validation.filterData</filter-class>
@@ -11,6 +12,10 @@
 	   <filter-name>filterData</filter-name>
 	   <url-pattern>/sign</url-pattern>
 	</filter-mapping>
+	 <listener>
+  <listener-class>com.jda.Listener.MySessionListener</listener-class>
+  </listener>
+  
   <servlet>
   	<servlet-name>LogInController</servlet-name>
   	<servlet-class>com.jda.controller.LogInController</servlet-class>
@@ -35,5 +40,5 @@
   	<servlet-name>LogOutController</servlet-name>
   	<url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  
+ 
 </web-app>
