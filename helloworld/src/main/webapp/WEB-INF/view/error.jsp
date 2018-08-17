@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="com.jda.Model.UserModel" %>
+    <%@page import="com.jda.model.UserModel" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%UserModel userDetail=null; 
+<%-- <%UserModel userDetail=null; 
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
 if(session.getAttribute("user") == null){
 	response.sendRedirect("login.jsp");
@@ -20,8 +20,9 @@ else{
 }
 %><br>
 
-Welcome : <%=userDetail.getName()%><br>
-<a href="login.jsp">Log Out</a>
+Welcome : <%=userDetail.getName()%><br> --%>
+<h1> Either email or password is incorrect</h1>
+<a href="login">back</a>
 
 </body>
 </html>

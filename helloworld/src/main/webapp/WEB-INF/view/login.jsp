@@ -4,7 +4,7 @@
 <html>
 <body>
 	<h2>Log In page</h2>
-	<form action="login" method="post">
+	<form action="login" method="post" modelAttribute="credential">
 		<input type="text" name="email" placeholder="email-Id"  required><br>
 		<input type="password" name="password" placeholder="password"  required><br>
 		<input type="submit">
